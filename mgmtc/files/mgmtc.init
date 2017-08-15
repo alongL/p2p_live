@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=99
+
+start() 
+{
+    mgmtc 172.17.225.249:9123 &
+}
+
+stop()
+{
+    pid_value=`pidof mgmtc`
+    kill -9 $pid_value > /dev/null 2>&1
+}
+
